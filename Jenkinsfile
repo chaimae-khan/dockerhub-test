@@ -1,12 +1,12 @@
 pipeline {
   agent any 
   environment {
-    DOCKERHUB_CREDENTIALS = credentials('chaimaekh-dockerhub')
+    DOCKERHUB_CREDENTIALS  = credentials('chaimaekh-dockerhub')
   }
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t darinpope/dp-alpine:latest .'
+        sh 'docker build -t chaimaekh/dp-alpine:latest .'
       }
     }
     stage('Login') {
@@ -16,7 +16,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push darinpope/dp-alpine:latest'
+        sh 'docker push chaimaekh/dp-alpine:latest'
       }
     }
   }
